@@ -160,7 +160,6 @@ class enumratorBase(object):
 
     def print_banner(self):
         """ subclass can override this if they want a fancy banner :)"""
-        self.print_(G + "[-] Searching now in %s.." % (self.engine_name) + W)
         return
 
     def send_req(self, query, page_no=1):
@@ -881,7 +880,7 @@ def main(domain, threads, savefile, ports, silent, verbose, enable_bruteforce, e
     parsed_domain = urlparse.urlparse(domain)
 
     if not silent:
-        print(B + "[-] Enumerating subdomains now for %s" % parsed_domain.netloc + W)
+        pass
 
     if verbose and not silent:
         print(Y + "[-] verbosity is enabled, will show the subdomains results in realtime" + W)
@@ -971,5 +970,4 @@ if __name__ == "__main__":
     engines = args.engines
     if verbose or verbose is None:
         verbose = True
-    banner()
     res = main(domain, threads, savefile, ports, silent=False, verbose=verbose, enable_bruteforce=enable_bruteforce, engines=engines)
